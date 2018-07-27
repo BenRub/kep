@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  client:
+    image: benrub/kep-client:latest
+    ports:
+      - "4500:80"
+  web:
+    image: benrub/kep-rest:latest
+    deploy:
+      replicas: 1
+    ports:
+      - "5000:5000"  
+  db:
+    image: benrub/kep-db:latest
+    ports:
+      - "3306:3306"
