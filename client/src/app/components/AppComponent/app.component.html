@@ -1,0 +1,35 @@
+Host address: <input [(ngModel)]="config.hostAddress" size="50" /> (with "http://")
+
+<div>
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <input type="file" (change)="changeListener($event)" #input />  
+  <button (click)="uploadFile()">Upload</button>
+  <div>
+    {{uploadStatus}}
+  </div>
+
+
+  <button (click)="fetchData()">Fetch Data</button>
+
+  <h2>Currencies values:</h2>
+  <table>
+    <tr>
+      <td>Currency</td>
+      <td>Exchange</td>
+      <td>Volume ($)</td>
+      <td>Value ($)</td>
+    </tr>
+    <tr *ngIf="currenciesValues.length==0">
+      <td colspan="4">No data :(</td>
+    </tr>
+    <tr *ngFor="let item of currenciesValues;">
+      <td>{{item.currency}}</td>
+      <td>{{item.exchange}}</td>
+      <td>{{item.volume}}</td>
+      <td>{{item.value}}</td>
+    </tr>
+  </table>
+</div>
+
